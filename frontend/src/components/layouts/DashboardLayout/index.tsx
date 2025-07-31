@@ -1,10 +1,10 @@
 import Navbar from "./Navbar";
 import DesktopSidebar from "./Sidebar/DesktopSidebar";
-import Stat from "@/assets/icons/stats.svg";
 import UserGear from "@/assets/icons/user-gear.svg";
 import ROUTE_CONSTANTS from "@/routes/routes.constants";
 import MobileSidebar from "./Sidebar/MobileSidebar";
 import { useState } from "react";
+import { RadioTower } from "lucide-react";
 
 interface IProps {
   children: React.ReactNode;
@@ -25,7 +25,7 @@ export interface ILink {
 const navLinks: ILink[] = [
   {
     title: "Dashboard",
-    icon: Stat,
+    icon: RadioTower,
     path: ROUTE_CONSTANTS.DASHBOARD,
     matchers: [ROUTE_CONSTANTS.DASHBOARD],
   },

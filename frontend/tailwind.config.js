@@ -58,7 +58,7 @@ export default {
         },
       },
       backgroundImage: {
-        layout: "url('./src/assets/images/auth-image.png')",
+        layout: "url('./src/assets/images/auth-image.jpg')",
         deviceBg: "url('./src/assets/images/bg-screen-contrast.svg')",
       },
       fontSize: {
