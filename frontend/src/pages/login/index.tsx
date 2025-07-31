@@ -106,7 +106,7 @@ const LoginPage = () => {
           <p className="text-xl font-medium text-black">
             Sign in with your credentials
           </p>
-          <p className="text-xs text-primary">Continue to Garaj</p>
+          <p className="text-xs text-primary">Continue to Hurrikane Knit</p>
         </div>
         <div>
           <FormProvider {...form}>

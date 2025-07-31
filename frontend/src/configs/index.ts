@@ -1,2 +1,1 @@
-// export const BASE_URL = 'https://ads-api.garajcloud.com/api'; //prod
-export const BASE_URL = "https://apiadsells.nms-mdm.com/api"; //dev
+export const BASE_URL = "https://localhost:5000/api"; //dev
