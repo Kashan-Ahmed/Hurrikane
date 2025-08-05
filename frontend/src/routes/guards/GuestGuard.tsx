@@ -1,6 +1,6 @@
-import { Navigate } from "react-router-dom";
+import { Navigate } from 'react-router-dom';
 
-import { getAccessTokens } from "@/store/auth-store";
+import { getAccessTokens } from '@/store/auth-store';
 
 interface IProps {
   children: React.ReactElement;

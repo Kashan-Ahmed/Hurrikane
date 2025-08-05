@@ -1,39 +1,39 @@
-import ROUTE_CONSTANTS from "./routes.constants";
-import LoginPage from "@/pages/login";
-import DashboardPage from "@/pages/dashboard";
-import UserSettings from "@/pages/user-settings";
-import NotFound from "@/pages/not-found";
+import ROUTE_CONSTANTS from './routes.constants';
+import LoginPage from '@/pages/login';
+import DashboardPage from '@/pages/dashboard';
+import UserSettings from '@/pages/user-settings';
+import NotFound from '@/pages/not-found';
 
 const routes = [
   {
     path: ROUTE_CONSTANTS.FALLBACK,
     element: NotFound,
-    type: "PUBLIC",
-    accessLevel: ["superuser", "admin", "customer", ""],
+    type: 'PUBLIC',
+    accessLevel: ['superuser', 'admin', 'customer', ''],
   },
   {
     path: ROUTE_CONSTANTS.ROOT,
     element: LoginPage,
-    type: "PROTECTED",
-    accessLevel: ["superuser", "admin", "customer", ""],
+    type: 'PROTECTED',
+    accessLevel: ['superuser', 'admin', 'customer', ''],
   },
   {
     path: ROUTE_CONSTANTS.LOGIN,
     element: LoginPage,
-    type: "PROTECTED",
-    accessLevel: ["superuser", "admin", "customer", ""],
+    type: 'PROTECTED',
+    accessLevel: ['superuser', 'admin', 'customer', ''],
   },
   {
     path: ROUTE_CONSTANTS.DASHBOARD,
     element: DashboardPage,
-    type: "PRIVATE",
-    accessLevel: ["superuser", "admin", "customer"],
+    type: 'PRIVATE',
+    accessLevel: ['superuser', 'admin', 'customer'],
   },
   {
     path: ROUTE_CONSTANTS.USER_SETTINGS,
     element: UserSettings,
-    type: "PRIVATE",
-    accessLevel: ["superuser", "admin", "customer"],
+    type: 'PRIVATE',
+    accessLevel: ['superuser', 'admin', 'customer'],
   },
 ];
 
@@ -41,7 +41,7 @@ const routes = [
 export const generateRoute = (
   route: string,
   params?: Record<string, string | number>,
-  queryParams: Record<string, string | number> = {},
+  queryParams: Record<string, string | number> = {}
 ) => {
   let path = route;
   if (params) {
@@ -51,7 +51,7 @@ export const generateRoute = (
   }
 
   const queryString = new URLSearchParams(
-    Object.entries(queryParams).map(([key, value]) => [key, value.toString()]),
+    Object.entries(queryParams).map(([key, value]) => [key, value.toString()])
   ).toString();
 
   // If there are query parameters, append them to the path

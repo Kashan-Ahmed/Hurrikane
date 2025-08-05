@@ -1,5 +1,5 @@
-import { useStore, create } from "zustand";
-import { devtools, persist } from "zustand/middleware";
+import { useStore, create } from 'zustand';
+import { devtools, persist } from 'zustand/middleware';
 
 type TTokens = {
   access: string | undefined;
@@ -52,12 +52,12 @@ const authStore = create<AuthStore>()(
           }),
       }),
       {
-        name: "auth",
+        name: 'auth',
         onRehydrateStorage: () => {
           // optional
           return (_, error) => {
             if (error) {
-              console.error("An error happened during hydration", error);
+              console.error('An error happened during hydration', error);
             }
           };
         },

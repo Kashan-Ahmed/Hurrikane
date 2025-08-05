@@ -20,7 +20,7 @@ const TextField = (props: InputProps) => {
         <Textarea
           {...props}
           className={cn(
-            'text-secondary-1 rounded-lg border-gray-400 bg-transparent text-sm font-medium !text-black bg-white',
+            'text-secondary-1 rounded-lg border-gray-400 bg-transparent bg-white text-sm font-medium !text-black',
             'transition-all delay-100 hover:border-primary',
             'outline-none placeholder:text-xs placeholder:font-normal placeholder:text-secondary/90',
             'focus-visible:ring-0 focus-visible:ring-offset-0',

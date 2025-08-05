@@ -1,18 +1,13 @@
-import { Link, useLocation } from "react-router-dom";
-import { ILink } from "..";
-import { cn } from "@/lib/utils";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { Link, useLocation } from 'react-router-dom';
+import { ILink } from '..';
+import { cn } from '@/lib/utils';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from '@/components/ui/accordion';
 
 interface IProps {
   links: ILink[];
@@ -24,9 +19,7 @@ const DesktopSidebar = ({ links }: IProps) => {
   const isRouteMatched = (matchers?: string[]) => {
     if (!matchers) return false;
     return matchers.some((matcher) => {
-      return (
-        location.pathname === matcher || location.pathname.startsWith(matcher)
-      );
+      return location.pathname === matcher || location.pathname.startsWith(matcher);
     });
   };
 
@@ -42,12 +35,12 @@ const DesktopSidebar = ({ links }: IProps) => {
                 <TooltipTrigger asChild>
                   <Accordion type="single" collapsible>
                     <AccordionItem value="item-1">
-                      <AccordionTrigger showIcon={false}>
+                      <AccordionTrigger>
                         <div
                           className={cn(
-                            "flex size-11 items-center justify-center rounded-full border border-zinc-100 bg-zinc-100 transition-all hover:border-primary/50 hover:bg-primary/20",
+                            'flex size-11 items-center justify-center rounded-full border border-zinc-100 bg-zinc-100 transition-all hover:border-primary/50 hover:bg-primary/20',
                             isMatched &&
-                              "border-primary bg-primary text-white hover:bg-primary/90 hover:text-white",
+                              'border-primary bg-primary text-white hover:bg-primary/90 hover:text-white'
                           )}
                         >
                           <item.icon />
@@ -55,13 +48,9 @@ const DesktopSidebar = ({ links }: IProps) => {
                       </AccordionTrigger>
                       <AccordionContent>
                         {item.children.map((childItem, childIdx) => {
-                          const isChildMatched = isRouteMatched(
-                            childItem.matchers,
-                          );
+                          const isChildMatched = isRouteMatched(childItem.matchers);
                           return (
-                            <TooltipProvider
-                              key={`route-${childItem.title}-${idx}`}
-                            >
+                            <TooltipProvider key={`route-${childItem.title}-${idx}`}>
                               <Tooltip delayDuration={200}>
                                 <TooltipTrigger asChild>
                                   <Link
@@ -70,23 +59,17 @@ const DesktopSidebar = ({ links }: IProps) => {
                                   >
                                     <div
                                       className={cn(
-                                        "mb-2 ml-3 flex size-11 items-center justify-center rounded-full border border-zinc-100 bg-zinc-100 transition-all hover:border-primary/50 hover:bg-primary/20",
+                                        'mb-2 ml-3 flex size-11 items-center justify-center rounded-full border border-zinc-100 bg-zinc-100 transition-all hover:border-primary/50 hover:bg-primary/20',
                                         isChildMatched &&
-                                          "border-primary bg-primary text-white hover:bg-primary/90 hover:text-white",
+                                          'border-primary bg-primary text-white hover:bg-primary/90 hover:text-white'
                                       )}
                                     >
                                       <childItem.icon />
                                     </div>
                                   </Link>
                                 </TooltipTrigger>
-                                <TooltipContent
-                                  side="right"
-                                  sideOffset={5}
-                                  className="px-3 py-1"
-                                >
-                                  <p className="text-sm font-medium">
-                                    {childItem.title}
-                                  </p>
+                                <TooltipContent side="right" sideOffset={5} className="px-3 py-1">
+                                  <p className="text-sm font-medium">{childItem.title}</p>
                                 </TooltipContent>
                               </Tooltip>
                             </TooltipProvider>
@@ -96,11 +79,7 @@ const DesktopSidebar = ({ links }: IProps) => {
                     </AccordionItem>
                   </Accordion>
                 </TooltipTrigger>
-                <TooltipContent
-                  side="right"
-                  sideOffset={5}
-                  className="px-3 py-1"
-                >
+                <TooltipContent side="right" sideOffset={5} className="px-3 py-1">
                   <p className="text-sm font-medium">{item.title}</p>
                 </TooltipContent>
               </Tooltip>
@@ -114,20 +93,16 @@ const DesktopSidebar = ({ links }: IProps) => {
                   <Link to={item.path} key={idx}>
                     <div
                       className={cn(
-                        "flex size-11 items-center justify-center rounded-full border border-zinc-100 bg-zinc-100 transition-all hover:border-primary/50 hover:bg-primary/20",
+                        'flex size-11 items-center justify-center rounded-full border border-zinc-100 bg-zinc-100 transition-all hover:border-primary/50 hover:bg-primary/20',
                         isMatched &&
-                          "border-primary bg-primary text-white hover:bg-primary/90 hover:text-white",
+                          'border-primary bg-primary text-white hover:bg-primary/90 hover:text-white'
                       )}
                     >
                       <item.icon />
                     </div>
                   </Link>
                 </TooltipTrigger>
-                <TooltipContent
-                  side="right"
-                  sideOffset={5}
-                  className="px-3 py-1"
-                >
+                <TooltipContent side="right" sideOffset={5} className="px-3 py-1">
                   <p className="text-sm font-medium">{item.title}</p>
                 </TooltipContent>
               </Tooltip>

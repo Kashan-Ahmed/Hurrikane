@@ -1,8 +1,8 @@
-import { useState, ReactNode } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import { useState, ReactNode } from 'react';
+import { Navigate, useLocation } from 'react-router-dom';
 // import { useNavigate } from "react-router-dom";
-import { getAccessTokens } from "@/store/auth-store";
-import ROUTE_CONSTANTS from "../routes.constants";
+import { getAccessTokens } from '@/store/auth-store';
+import ROUTE_CONSTANTS from '../routes.constants';
 
 interface IRoute {
   path: string;

@@ -1,8 +1,8 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import GuestGuard from "@/routes/guards/GuestGuard";
-import AuthGuard from "@/routes/guards/AuthGuard";
-import { getUserDetails } from "@/store/auth-store";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import GuestGuard from '@/routes/guards/GuestGuard';
+import AuthGuard from '@/routes/guards/AuthGuard';
+import { getUserDetails } from '@/store/auth-store';
 
 interface IRoute {
   path: string;
@@ -12,7 +12,7 @@ interface IRoute {
 }
 
 const useCustomRoutes = (routes: IRoute[] = []) => {
-  const hasAccess = getUserDetails()?.role || "";
+  const hasAccess = getUserDetails()?.role || '';
   return (
     <Routes>
       {routes.map(
@@ -23,26 +23,26 @@ const useCustomRoutes = (routes: IRoute[] = []) => {
               path={route.path}
               element={(() => {
                 switch (route.type) {
-                  case "PROTECTED":
+                  case 'PROTECTED':
                     return (
                       <GuestGuard>
                         <route.element />
                       </GuestGuard>
                     );
-                  case "PRIVATE":
+                  case 'PRIVATE':
                     return (
                       <AuthGuard route={route}>
                         <route.element />
                       </AuthGuard>
                     );
-                  case "PUBLIC":
+                  case 'PUBLIC':
                     return <route.element />;
                   default:
                     return <route.element />;
                 }
               })()}
             />
-          ),
+          )
       )}
     </Routes>
   );

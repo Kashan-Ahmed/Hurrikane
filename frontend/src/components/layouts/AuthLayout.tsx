@@ -1,6 +1,6 @@
-import MCIImage from "@/assets/images/msi.png";
-import Logo from "@/assets/images/logo.png";
-import AuthBg from "@/assets/images/auth-image.jpg";
+import MCIImage from '@/assets/images/msi.png';
+import Logo from '@/assets/images/logo.png';
+import AuthBg from '@/assets/images/auth-image.jpg';
 interface IProps {
   children: React.ReactNode;
 }

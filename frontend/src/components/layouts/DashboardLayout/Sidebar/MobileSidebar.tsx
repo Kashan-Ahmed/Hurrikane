@@ -1,8 +1,8 @@
-import { Sheet, SheetContent } from "@/components/ui/sheet";
-import { ILink } from "..";
-import { useNavigate } from "react-router-dom";
-import { X } from "lucide-react";
-import Button from "@/components/common/Button";
+import { Sheet, SheetContent } from '@/components/ui/sheet';
+import { ILink } from '..';
+import { useNavigate } from 'react-router-dom';
+import { X } from 'lucide-react';
+import Button from '@/components/common/Button';
 
 interface IProps {
   links: ILink[];

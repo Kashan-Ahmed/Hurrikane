@@ -27,7 +27,10 @@ const Menu = ({ label, items }: IProps) => {
           <Ellipsis />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align='end' className="min-w-40 rounded-lg border border-zinc-200 bg-white p-1 shadow">
+      <DropdownMenuContent
+        align="end"
+        className="min-w-40 rounded-lg border border-zinc-200 bg-white p-1 shadow"
+      >
         {label && (
           <Fragment>
             <DropdownMenuLabel>{label}</DropdownMenuLabel>
@@ -37,7 +40,7 @@ const Menu = ({ label, items }: IProps) => {
         {items.map((item, idx) => {
           return (
             <Fragment key={idx}>
-              {item.separator && <DropdownMenuSeparator className='bg-zinc-200'/>}
+              {item.separator && <DropdownMenuSeparator className="bg-zinc-200" />}
               {!item.separator && (
                 <DropdownMenuItem
                   onClick={item.onSelect}

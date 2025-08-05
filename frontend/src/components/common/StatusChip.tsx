@@ -14,7 +14,7 @@ type TProps = {
     | 'default'
     | 'Pass'
     | 'Fail'
-    | 'completed'
+    | 'completed';
 };
 
 const badgeVariants = cva(
@@ -44,7 +44,7 @@ const badgeVariants = cva(
     defaultVariants: {
       variant: 'default',
     },
-  },
+  }
 );
 
 const StatusChip = ({ variant = 'default', className, label }: TProps) => {

@@ -20,7 +20,7 @@ const DeleteConfirm = ({ open, isPending, onConfirm, onCancel, description }: TP
     <Dialog open={open}>
       <DialogContent className="max-w-lg gap-0 rounded-xl p-0">
         <DialogHeader className="px-6 py-6">
-          <DialogTitle className="text-xl pb-1">Are you absolutely sure?</DialogTitle>
+          <DialogTitle className="pb-1 text-xl">Are you absolutely sure?</DialogTitle>
           <DialogDescription className="!mt-0 text-sm text-zinc-500">
             {description}
             {/* This action cannot be undone. Are you sure you want to permanently delete this file from

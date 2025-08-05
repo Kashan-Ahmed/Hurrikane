@@ -1,10 +1,10 @@
-import Axios, { InternalAxiosRequestConfig, AxiosError } from "axios";
-import { getAccessTokens, getAuthActions } from "@/store/auth-store";
-import { BASE_URL } from "./index";
+import Axios, { InternalAxiosRequestConfig, AxiosError } from 'axios';
+import { getAccessTokens, getAuthActions } from '@/store/auth-store';
+import { BASE_URL } from './index';
 
 function authRequestInterceptor(config: InternalAxiosRequestConfig) {
   if (config.headers) {
-    config.headers.Accept = "*/*";
+    config.headers.Accept = '*/*';
     const tokens = getAccessTokens();
     const accessToken = tokens?.access;
     if (accessToken) {
@@ -68,21 +68,18 @@ api.interceptors.response.use(
     //     return Promise.reject(error);
     //   }
     // }
-    if (error.response?.status === 401 && !error.config.url.includes("token")) {
+    if (error.response?.status === 401 && !error.config.url.includes('token')) {
       const { clearAuthData } = getAuthActions();
       clearAuthData();
-      window.location.href = "/";
+      window.location.href = '/';
       return Promise.reject(error);
     }
 
     return Promise.reject(error);
-  },
+  }
 );
 
-export const handleAxiosError = (
-  error: unknown,
-  defaultMessage: string,
-): string => {
+export const handleAxiosError = (error: unknown, defaultMessage: string): string => {
   if (Axios.isAxiosError(error)) {
     // Customize this based on the structure of your error responses
     const axiosError = error as AxiosError<{ old_password?: string[] }>;

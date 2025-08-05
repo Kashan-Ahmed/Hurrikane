@@ -1,55 +1,53 @@
-import { ColumnDef } from "@tanstack/react-table";
+import { ColumnDef } from '@tanstack/react-table';
 
 export const getColumns = (): ColumnDef<any>[] => {
   return [
     {
-      accessorKey: "id",
-      header: "ID",
+      accessorKey: 'id',
+      header: 'ID',
     },
     {
-      accessorKey: "beaconID",
-      header: "Beacon ID",
+      accessorKey: 'beaconID',
+      header: 'Beacon ID',
     },
     {
-      accessorKey: "plantID",
-      header: "Plant ID",
+      accessorKey: 'plantID',
+      header: 'Plant ID',
     },
     {
-      accessorKey: "machNo",
-      header: "Machine No",
+      accessorKey: 'machNo',
+      header: 'Machine No',
     },
     {
-      accessorKey: "machIP",
-      header: "Machine IP",
+      accessorKey: 'machIP',
+      header: 'Machine IP',
     },
     {
-      accessorKey: "version",
-      header: "Version",
+      accessorKey: 'version',
+      header: 'Version',
     },
     {
-      accessorKey: "shiftCode",
-      header: "Shift Code",
+      accessorKey: 'shiftCode',
+      header: 'Shift Code',
     },
     {
-      accessorKey: "event",
-      header: "Event",
+      accessorKey: 'event',
+      header: 'Event',
     },
     {
-      accessorKey: "lifeTime",
-      header: "Life Time",
+      accessorKey: 'lifeTime',
+      header: 'Life Time',
     },
     {
-      accessorKey: "length",
-      header: "Length",
+      accessorKey: 'length',
+      header: 'Length',
     },
     {
-      accessorKey: "created",
-      header: "Created",
+      accessorKey: 'created',
+      header: 'Created',
       cell: ({ row }) => {
         return (
-          <div className="flex justify-end">
-            {new Date(row.original.created).toLocaleString()}
-          </div>
+          <div className="flex justify-end">{new Date(row.original.created).toLocaleString()}</div>
         );
       },
     },

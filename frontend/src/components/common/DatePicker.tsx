@@ -9,7 +9,7 @@ type TProps = {
   value: Date | undefined;
   onChange: (date: Date | undefined) => void;
   label?: string;
-  errorMsg?: string
+  errorMsg?: string;
 };
 
 export function DatePicker({ value, label, onChange, errorMsg }: TProps) {
@@ -26,7 +26,7 @@ export function DatePicker({ value, label, onChange, errorMsg }: TProps) {
             )}
           >
             <CalendarIcon className="mr-1 h-4 w-4" />
-            {value ? format(value, 'PPP') : <span className='text-primary'>Pick a date</span>}
+            {value ? format(value, 'PPP') : <span className="text-primary">Pick a date</span>}
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0">

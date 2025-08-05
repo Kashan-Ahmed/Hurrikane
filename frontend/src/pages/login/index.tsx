@@ -1,21 +1,21 @@
-import AuthLayout from "@/components/layouts/AuthLayout";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm, FormProvider, Controller } from "react-hook-form";
-import { z } from "zod";
-import InputField from "@/components/common/InputField";
-import Checkbox from "@/components/common/Checkbox";
-import Button from "@/components/common/Button";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { login, TLoginPayload, getUserProfile } from "@/apis/auth";
-import { getAuthActions } from "@/store/auth-store";
-import QUERY_KEYS from "@/configs/api-query-keys";
-import ROUTE_CONSTANTS from "@/routes/routes.constants";
-import { useNavigate } from "react-router-dom";
-import { useToast } from "@/hooks/use-toast";
+import AuthLayout from '@/components/layouts/AuthLayout';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm, FormProvider, Controller } from 'react-hook-form';
+import { z } from 'zod';
+import InputField from '@/components/common/InputField';
+import Checkbox from '@/components/common/Checkbox';
+import Button from '@/components/common/Button';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { login, TLoginPayload, getUserProfile } from '@/apis/auth';
+import { getAuthActions } from '@/store/auth-store';
+import QUERY_KEYS from '@/configs/api-query-keys';
+import ROUTE_CONSTANTS from '@/routes/routes.constants';
+import { useNavigate } from 'react-router-dom';
+import { useToast } from '@/hooks/use-toast';
 
 const FormSchema = z.object({
-  email: z.string().min(1, "Email is required").email("Invalid email format"),
-  password: z.string().min(6, "Password must be atleast 6 characters long"),
+  email: z.string().min(1, 'Email is required').email('Invalid email format'),
+  password: z.string().min(6, 'Password must be atleast 6 characters long'),
   remember: z.boolean().default(false).optional(),
 });
 
@@ -23,8 +23,8 @@ const LoginPage = () => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
       remember: false,
     },
   });
@@ -33,7 +33,6 @@ const LoginPage = () => {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const { toast } = useToast();
-
 
   // const { mutate, isPending } = useMutation({
   //   mutationFn: (payload: TLoginPayload) => {
@@ -45,10 +44,10 @@ const LoginPage = () => {
     const profileData = {
       id: 1,
       parent: null,
-      first_name: "",
-      last_name: "",
-      email: "admin@alvayria.com",
-      role: "superuser",
+      first_name: '',
+      last_name: '',
+      email: 'admin@alvayria.com',
+      role: 'superuser',
       phone_number: null,
     };
     // await queryClient.fetchQuery<TUser>({
@@ -58,8 +57,8 @@ const LoginPage = () => {
 
     setUserData(profileData);
     setTokens({
-      access: "mock-access-token",
-      refresh: "mock-refresh-token",
+      access: 'mock-access-token',
+      refresh: 'mock-refresh-token',
     });
 
     navigate(ROUTE_CONSTANTS.DASHBOARD);
@@ -74,10 +73,10 @@ const LoginPage = () => {
         const profileData = {
           id: 1,
           parent: null,
-          first_name: "",
-          last_name: "",
-          email: "admin@alvayria.com",
-          role: "superuser",
+          first_name: '',
+          last_name: '',
+          email: 'admin@alvayria.com',
+          role: 'superuser',
           phone_number: null,
         };
         // await queryClient.fetchQuery<TUser>({
@@ -90,8 +89,8 @@ const LoginPage = () => {
       },
       onError: (error) => {
         toast({
-          variant: "destructive",
-          title: "Login Error",
+          variant: 'destructive',
+          title: 'Login Error',
           description: error.message,
         });
       },
@@ -103,9 +102,7 @@ const LoginPage = () => {
     <AuthLayout>
       <div>
         <div className="mb-6">
-          <p className="text-xl font-medium text-black">
-            Sign in with your credentials
-          </p>
+          <p className="text-xl font-medium text-black">Sign in with your credentials</p>
           <p className="text-xs text-primary">Continue to Hurrikane Knit</p>
         </div>
         <div>
@@ -160,9 +157,7 @@ const LoginPage = () => {
                   }}
                   control={form.control}
                 />
-                <p className="text-xxs font-medium text-primary">
-                  Forgot Password?
-                </p>
+                <p className="text-xxs font-medium text-primary">Forgot Password?</p>
               </div>
 
               <div className="mb-7 w-full">
@@ -172,12 +167,9 @@ const LoginPage = () => {
               </div>
 
               <p className="mb-4 text-xxs text-primary">
-                By proceeding, you agree to the{" "}
-                <span className="text-nowrap font-medium">
-                  Terms and Conditions
-                </span>
-                and{" "}
-                <span className="text-nowrap font-medium">Privacy Policy</span>
+                By proceeding, you agree to the{' '}
+                <span className="text-nowrap font-medium">Terms and Conditions</span>
+                and <span className="text-nowrap font-medium">Privacy Policy</span>
               </p>
 
               <div className="mb-4 flex items-center gap-2 text-xxs text-primary">
